@@ -25,10 +25,11 @@ namespace fileSort
 
             bool exit = false;
             // Loop so the program won't close on copletion of operation
+            // Loop until exit is true
             while (exit == false){
                 exit = operation();
             }
-
+            Environment.Exit();
         }
 
         private static bool operation()
