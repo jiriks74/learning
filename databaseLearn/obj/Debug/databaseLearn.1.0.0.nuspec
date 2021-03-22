@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>databaseLearn</id>
+    <version>1.0.0</version>
+    <authors>databaseLearn</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0">
+        <dependency id="System.Data.SQLite" version="1.0.113.7" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/net5.0/Program.cs" buildAction="Content" />
+      <files include="any/net5.0/database.db" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="/home/jirka/Programs/Projects/learn/MeJuniorW/My/learning/databaseLearn/bin/Debug/net5.0/databaseLearn.runtimeconfig.json" target="lib/net5.0/databaseLearn.runtimeconfig.json" />
+    <file src="/home/jirka/Programs/Projects/learn/MeJuniorW/My/learning/databaseLearn/bin/Debug/net5.0/databaseLearn.dll" target="lib/net5.0/databaseLearn.dll" />
+    <file src="/home/jirka/Programs/Projects/learn/MeJuniorW/My/learning/databaseLearn/Program.cs" target="content/Program.cs" />
+    <file src="/home/jirka/Programs/Projects/learn/MeJuniorW/My/learning/databaseLearn/Program.cs" target="contentFiles/any/net5.0/Program.cs" />
+    <file src="/home/jirka/Programs/Projects/learn/MeJuniorW/My/learning/databaseLearn/database.db" target="content/database.db" />
+    <file src="/home/jirka/Programs/Projects/learn/MeJuniorW/My/learning/databaseLearn/database.db" target="contentFiles/any/net5.0/database.db" />
+  </files>
+</package>
