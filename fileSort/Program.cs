@@ -17,23 +17,18 @@ namespace fileSort
             Console.WriteLine("////Welcome to filesorter by jiriks74!////");
             Console.WriteLine("//////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////");
-            System.Threading.Thread.Sleep(3000);
-            xmlEdit.loadSettings();
+            System.Threading.Thread.Sleep(3000); // Wait 3 seconds to show welcome screen
+
+            xmlEdit.loadSettings(); // Load settings, call function from xmlEdit class
 
             Console.Clear();
 
             bool exit = false;
+            // Loop so the program won't close on copletion of operation
             while (exit == false){
                 exit = operation();
             }
 
-            /*Console.Clear();
-            loadSettings();
-            addFilex();
-            saveSettings();
-            path = getPath();
-            files = loadFiles(path);
-            sortFiles(path, files);*/
         }
 
         private static bool operation()
@@ -47,18 +42,19 @@ namespace fileSort
             Console.WriteLine("'q': Quit");
             Console.Write("Select operation: ");
 
-            string input = Console.ReadLine();
+            string input = Console.ReadLine(); // Get input from console
 
-            switch (input)
+            // Switch for choosing operations
+            switch (input) 
             {
                 // Sort files
                 case "s":
-                    fileSorter.sortFiles();
+                    fileSorter.sortFiles(); // Call function from fileSorter class to sort files
                     return false;
 
                 // Add extensions to database
                 case "a":
-                    xmlEdit.addFilex();
+                    xmlEdit.addFilex(); // Call function from xmlEdit class to add new extensions to database
                     return false;
 
                 // Show current database of extensions
@@ -75,13 +71,13 @@ namespace fileSort
 
                 // Quit
                 case "q":
-                    Environment.Exit(0);
-                    return true;
+                    Environment.Exit(0); // Quit the program
+                    return true; // Compiler thinks I need to return something even though it's unreachable code
 
                 // Default - input
                 default:
                     Console.WriteLine($"There is no operation for {input}. Try again.");
-                    System.Threading.Thread.Sleep(3000);
+                    System.Threading.Thread.Sleep(2000); // Sleep for 2 seconds
                     return false;
             }
         }
