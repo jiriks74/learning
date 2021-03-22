@@ -40,48 +40,47 @@ namespace fileSort
         {
             Console.Clear();
 
-            Console.WriteLine("1: Sort files");
-            Console.WriteLine("2: Add extensions to database");
-            Console.WriteLine("3: Show current database of extesnsions");
-            Console.WriteLine("4: Change extensions folder");
-            Console.WriteLine("999: Quit");
+            Console.WriteLine("'s': Sort files");
+            Console.WriteLine("'a': Add extensions to database");
+            Console.WriteLine("'d': Show current database of extesnsions");
+            Console.WriteLine("'c': Change extensions folder");
+            Console.WriteLine("'q': Quit");
             Console.Write("Select operation: ");
 
-            int x;
-            int.TryParse(Console.ReadLine(), out x);
+            string input = Console.ReadLine();
 
-            switch (x)
+            switch (input)
             {
                 // Sort files
-                case 1:
+                case "s":
                     fileSorter.sortFiles();
                     return false;
 
                 // Add extensions to database
-                case 2:
+                case "a":
                     xmlEdit.addFilex();
                     return false;
 
                 // Show current database of extensions
-                case 3:
+                case "d":
                     Console.WriteLine("todo");
                     System.Threading.Thread.Sleep(2000);
                     return false;
 
                 // Change extensions folder
-                case 4:
+                case "c":
                     Console.WriteLine("todo");
                     System.Threading.Thread.Sleep(2000);
                     return false;
 
                 // Quit
-                case 999:
+                case "q":
                     Environment.Exit(0);
                     return true;
 
-                // Default - wrong value
+                // Default - input
                 default:
-                    Console.WriteLine($"There is no operation for {x}. Try again.");
+                    Console.WriteLine($"There is no operation for {input}. Try again.");
                     System.Threading.Thread.Sleep(3000);
                     return false;
             }
