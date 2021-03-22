@@ -44,7 +44,7 @@ namespace fileSort
             Console.WriteLine("2: Add extensions to database");
             Console.WriteLine("3: Show current database of extesnsions");
             Console.WriteLine("4: Change extensions folder");
-            Console.WriteLine("999: Quit")
+            Console.WriteLine("999: Quit");
             Console.Write("Select operation: ");
 
             int x;
