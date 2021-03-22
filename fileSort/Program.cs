@@ -71,7 +71,6 @@ namespace fileSort
 
                 // Quit
                 case "q":
-                    Environment.Exit(0); // Quit the program
                     return true; // Compiler thinks I need to return something even though it's unreachable code
 
                 // Default - input
