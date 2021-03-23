@@ -4,10 +4,9 @@ using System;
 
 namespace fileSort
 {
-    public static class Program
+    public class Program
     {
-        public static DataSet settings = new DataSet();
-        public static string settingsFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "settings.xml");
+        
         public static void Main(string[] args)
         {
 
@@ -19,7 +18,7 @@ namespace fileSort
             Console.WriteLine("//////////////////////////////////////////");
             System.Threading.Thread.Sleep(3000); // Wait 3 seconds to show welcome screen
 
-            xmlEdit.loadSettings(); // Load settings, call function from xmlEdit class
+            dal.loadSettings(); // Load settings, call function from xmlEdit class
 
             Console.Clear();
 
@@ -29,7 +28,7 @@ namespace fileSort
             while (exit == false){
                 exit = operation();
             }
-            Environment.Exit();
+            Environment.Exit(0);
         }
 
         private static bool operation()
@@ -55,7 +54,7 @@ namespace fileSort
 
                 // Add extensions to database
                 case "a":
-                    xmlEdit.addFilex(); // Call function from xmlEdit class to add new extensions to database
+                    dal.addFilex(); // Call function from xmlEdit class to add new extensions to database
                     return false;
 
                 // Show current database of extensions

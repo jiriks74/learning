@@ -4,7 +4,7 @@ using System.Data;
 
 namespace fileSort
 {
-    public static class fileSorter
+    public class fileSorter
     {
         private static string path;
         private static string[] files;
@@ -18,15 +18,7 @@ namespace fileSort
             {
 
                 FileInfo finf = new FileInfo(filename); // Get info about the file
-                string extension = $"ex = '{finf.Extension}'"; // Load the file extension into a format that can be searched in settings table
-                string folder = ""; // Initialize folder variable for storing foldername where the file will be moved
-
-                DataRow[] foundRow = Program.settings.Tables[0].Select(extension); // Search for the extension in settings table
-
-                foreach (DataRow dr in foundRow) // Foreach row, where the file extension 'ex' exists (should be always one)
-                {
-                    folder = dr["folder"].ToString(); // Get the foldername and store it in 'folder'
-                }
+                string folder = dal.folderName(finf.Extension); // Get the asigned forlder name from dal
 
                 if (!Directory.Exists(Path.Combine(path, folder))) // If directory with name of 'folder' doesn't exist in the sorted directory
                 {
