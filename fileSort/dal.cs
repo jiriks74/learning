@@ -9,6 +9,7 @@ namespace fileSort
     {
         public static DataSet settings = new DataSet();
         public static string settingsFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "settings.xml");
+        public static string tableName = "filex";
         private static void saveSettings()
         {
             settings.WriteXml(settingsFile); // Save the settings to settings file
@@ -24,9 +25,9 @@ namespace fileSort
             else
             {
                 Console.WriteLine("Setings file not found, creating blank one");
-                settings.Tables.Add(); // Add table to the dataset
-                settings.Tables[0].Columns.Add("ex", typeof(String)); // Add column for file extensions to table
-                settings.Tables[0].Columns.Add("folder", typeof(String)); // Add column for folder names to table
+                settings.Tables.Add(tableName); // Add table to the dataset
+                settings.Tables[tableName].Columns.Add("ex", typeof(String)); // Add column for file extensions to table
+                settings.Tables[tableName].Columns.Add("folder", typeof(String)); // Add column for folder names to table
                 settings.WriteXml(settingsFile); // Save the new blank settings into the settings file
             }
         }
@@ -55,10 +56,10 @@ namespace fileSort
 
             if (folder == "q") return;
 
-            DataRow row = settings.Tables[0].NewRow(); // Create new row
+            DataRow row = settings.Tables[tableName].NewRow(); // Create new row
             row[0] = ex; // Add the file extension to the first column
             row[1] = folder; // Add folder name to second column
-            settings.Tables[0].Rows.Add(row); // Add the new row to table
+            settings.Tables[tableName].Rows.Add(row); // Add the new row to table
 
             Console.Clear();
             Console.WriteLine("Succefully added to database");
@@ -74,7 +75,7 @@ namespace fileSort
             string extension = $"ex = '{ex}'"; // Load the file extension into a format that can be searched in settings table
             string folder = ""; // Initialize folder variable for storing foldername where the file will be moved
 
-            DataRow[] foundRow = settings.Tables[0].Select(extension); // Search for the extension in settings table
+            DataRow[] foundRow = settings.Tables[tableName].Select(extension); // Search for the extension in settings table
 
             foreach (DataRow dr in foundRow) // Foreach row, where the file extension 'ex' exists (should be always one)
             {

@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Data;
-using System;
+﻿using System;
 
 namespace fileSort
 {
@@ -10,9 +8,9 @@ namespace fileSort
         public static void Main(string[] args)
         {
 
-            Console.Clear();
-            Console.WriteLine("//////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////");
+            Console.Clear(); 
+            Console.WriteLine("//////////////////////////////////////////"); 
+            Console.WriteLine("//////////////////////////////////////////"); 
             Console.WriteLine("////Welcome to filesorter by jiriks74!////");
             Console.WriteLine("//////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////");
