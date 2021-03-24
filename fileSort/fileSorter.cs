@@ -7,10 +7,9 @@ namespace fileSort
     {
         private static string path;
         private static string[] files;
-        public static void sortFiles()
+        public static void sortFiles(string path)
         {
-            Console.Clear();
-            path = getPath(); // Get path of the folder user wants to sort
+            Console.Clear();// Get path of the folder user wants to sort
             files = loadFiles(path); // Load all the files in the folder stored in 'path'
 
             foreach (string filename in files) // For each file in the folder
@@ -46,27 +45,6 @@ namespace fileSort
                 Console.WriteLine("Directory doesn't exists");
                 return new string[] { }; // Return empty string[]
             }
-        }
-
-        private static string getPath()
-        {
-            string path;
-            Console.Clear();
-
-            Console.Write("Type path of the folder you want to organize: ");
-            path = Console.ReadLine(); // Get path of the folder user want's to sort
-            Console.Clear();
-
-            if (Directory.Exists(path))
-            {
-                return path; // If the directory exists, return it
-            }
-            else
-            {
-                Console.WriteLine("Invalid path! Try again.");
-                getPath(); // Else call getPath() function again, so user can type the path again
-            }
-            return null; // Unreachable code, just for compiler
         }
     }
 }
